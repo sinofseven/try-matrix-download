@@ -22,7 +22,6 @@ jobs:
           zip -r ../${{ matrix.files.name }}.zip .
       - uses: actions/upload-artifact@v3
         with:
-          name: aaa_${{ matrix.files.name }}
           path: ${{ matrix.files.name }}.zip
   
   download:
