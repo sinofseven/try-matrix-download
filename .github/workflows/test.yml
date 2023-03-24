@@ -13,7 +13,7 @@ jobs:
           - { name: 3333 }
     steps:
       - run: touch ${{ matrix.job.name }}
-      - uses: actions/upload-artifact
+      - uses: actions/upload-artifact@v3
         with:
           name: aaa_${{ matrix.job.name }}
           path: ${{ matrix.job.name }}
@@ -22,7 +22,7 @@ jobs:
     needs: upload_test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download_artifact
+      - uses: actions/download_artifact@v3
         with:
           name: aaa_
       - run: ls -l
