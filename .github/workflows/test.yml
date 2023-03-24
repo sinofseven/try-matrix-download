@@ -17,7 +17,8 @@ jobs:
       - run: |
           mkdir dist
           cp ${{ matrix.files.name }} dist/
-          cd README.md dist/
+          cp README.md dist/
+          cd dist/
           zip -r ../${{ matrix.files.name }}.zip .
       - uses: actions/upload-artifact@v3
         with:
