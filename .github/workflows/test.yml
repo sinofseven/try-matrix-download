@@ -15,6 +15,11 @@ jobs:
       - run: touch ${{ matrix.files.name }}
       - run: echo "# kabeuchi" > README.md
       - run: |
+          which pip3
+          pip3 install awscli
+          which aws
+
+      - run: |
           mkdir dist
           cp ${{ matrix.files.name }} dist/
           cp README.md dist/
