@@ -1,0 +1,28 @@
+on:
+  push:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        files:
+          - { name: 1111 }
+          - { name: 2222 }
+          - { name: 3333 }
+    steps:
+      - run: touch ${{ matrix.job.name }}
+      - uses: actions/upload-artifact
+        with:
+          name: aaa_${{ matrix.job.name }}
+          path: ${{ matrix.job.name }}
+  
+  download:
+    needs: upload_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download_artifact
+        with:
+          name: aaa_
+      - run: ls -l
