@@ -1,0 +1,8 @@
+on:
+  push:
+
+jobs:
+  try:
+    runs-on: macos-latest
+    steps:
+      - run: which brew
