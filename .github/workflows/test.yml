@@ -13,11 +13,11 @@ jobs:
           - { name: 3333 }
     steps:
       - run: touch ${{ matrix.files.name }}
+      - run: echo "# kabeuchi" > README.md
       - run: |
           mkdir dist
           cp ${{ matrix.files.name }} dist/
-          cp README.md dist/
-          cd dist/
+          cd README.md dist/
           zip -r ../${{ matrix.files.name }}.zip .
       - uses: actions/upload-artifact@v3
         with:
