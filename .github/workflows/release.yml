@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
+      - run: |
+          find templates/ -type f | sort > files.txt
+          echo "RELEASE_FILES=$(cat files.txt)" >> $GITHUB_ENV
+      - run: echo $RELEASE_FILES
       - uses: softprops/action-gh-release@v1
         with:
           draft: true
